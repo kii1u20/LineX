@@ -1,0 +1,26 @@
+{
+  "name": "comp3207-group-project-ui",
+  "version": "1.0.0",
+  "description": "UI of Scheduling App",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://git.soton.ac.uk/dr5g20/comp3207-group-project-ui.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cookie-parser": "^1.4.6",
+    "cookie-session": "^2.0.0",
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "nodemon": "^2.0.20",
+    "parcel": "^2.8.2",
+    "socket.io": "^4.5.4",
+    "vis-timeline": "^7.7.0"
+  }
+}

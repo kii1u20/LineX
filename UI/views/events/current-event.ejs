@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+
+    <%- include('../helper/header'); -%>
+    <%- include('../helper/topnavbar'); -%>
+
+    <!-- This can be edited -->
+    <div id="current-event">
+        <div id="template">
+            <h3 style="text-align: center; ">Timeline</h3>
+            <div id="visualization">
+            </div>
+            <br>
+            <div v-if="renderDiv">
+                <div>
+                    <h3 style="text-align: center; ">Time Suggestions</h3>
+                    <div v-for="option of options" :key="option.id">
+                        <div class="form-check options">
+                            <input class="form-check-input" type="radio" v-model="selectedOption" :value="option.id" :id="option.id">
+                            <label class="form-check-label" for="flexRadioDefault1">
+                                {{option.content.startDate.split('T')[0]+' '+option.content.startDate.split('T')[1]}} to {{option.content.endDate.split('T')[0]+' '+option.content.endDate.split('T')[1]}} : {{option.content.votes}} votes
+                            </label>
+                            <p :for="option.id" hidden name="optionId">{{option.id}}</p>
+                        </div>
+                    </div>
+                </div>
+                <br>
+
+                <div class="form-group options">
+                    <div>
+                        <h6>Suggest start timeframe:</h6>
+                        <input name="start" type="datetime-local" v-model="startDate"> <!--change the v-model-->
+                    </div>
+                    <br>
+                    <div>
+                        <h6>Suggest end timeframe:</h6>
+                        <input name="end" type="datetime-local" v-model="endDate">
+                    </div>
+                </div>
+                <br>
+                <button type="button" class="create-event-btn" @click="add_option()">Suggest time</button>
+                <button type="button" class="create-event-btn" @click="update_users_voted()">Vote for final event</button>
+                <button type="button" class="create-event-btn" @click="save_event()">Save final event</button>
+            </div>
+            <div v-if="renderFinalDiv">
+                <h3>Final event saved with time {{finalSavedTime}}</h3>
+            </div>
+        </div>
+        <!-- Until here  -->
+
+        <div>
+            <p hidden id="event"><%= locals.event %></p> 
+            <p hidden id="calendars"><%= locals.calendars %></p> 
+        </div>
+    </div>
+
+    <%- include('../helper/footer'); -%>
+    <!-- Application Javascript -->
+    <script src="/static/current-event.js"></script>
+</html>

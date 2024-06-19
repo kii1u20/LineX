@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+
+    <%- include('../helper/header'); -%>
+    <%- include('../helper/topnavbar'); -%>
+
+    <h1 style="text-align: left; margin-left: 10%;">Personal Calendar</h1>
+    <div style="display: flex; justify-content: center;">
+        <div id="calendar" class="calendarContainer">
+            
+            <div class="headerCalendar">
+                <div id="currentMonth"></div>
+                <div>
+                    <button id="previousButton">Previous</button>
+                    <button id="nextButton">Next</button>                   
+                </div>
+                <form action="/account/calendar/add/entry" method="GET">
+                    <button id="addPersonalEventB" value="Create Event">Add Personal Event</button>
+                </form>
+            </div>
+
+            <div class="headerDays">
+                <div class="headerDaysdiv">Monday</div>
+                <div class="headerDaysdiv">Tuesday</div>
+                <div class="headerDaysdiv">Wednesday</div>
+                <div class="headerDaysdiv">Thursday</div>
+                <div class="headerDaysdiv">Friday</div>
+                <div class="headerDaysdiv">Saturday</div>
+                <div class="headerDaysdiv">Sunday</div>
+            </div>
+
+            <div class="calendarContent" id="calendarContent">
+
+            </div>
+        </div>
+    </div>
+
+    <div style="display: none;">
+        <p id="eventsList"><%= locals.eventsList %></p> 
+    </div>
+
+    <!-- for Adding Calendar entry manually -> Email, Start Date, End Date, Description -->
+
+    <%- include('../helper/footer'); -%>
+    <!-- Application Javascript -->
+    <script src="/static/calendar.js"></script>
+</html>

@@ -1,0 +1,12 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "FUNCTIONS_WORKER_RUNTIME": "python",
+    "db_URI":"https://comp3207groupcourseworkdatabase.documents.azure.com:443/",
+    "db_key":"NlUlcbWypVIgpbaZiv6lcAbfCSlJhrTrpzLb3HtVvulFpBfyQ9BtHQ0vcmUHmCC42TWU5aKkzIHsACDbgD6eLQ==",
+    "db_id":"comp3207groupcourseworkdatabase",
+    "events_container":"events",
+    "users_container":"users",
+    "personal_calendar_container":"personal_calendar"
+  }
+}

@@ -1,0 +1,51 @@
+body {
+    background-repeat: no-repeat;
+    background-color: aliceblue;
+}
+strong {
+    text-align: justify;
+    display: inline-block;
+  }
+.title {
+    font-weight: bold;
+    font-size: 32px;
+    text-align: center;
+}
+.container {
+    background-color: #1587b89d;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    text-align: justify;
+}
+.player {
+    background-color: pink;
+    /* border: 1px solid black; */
+    padding: 2px;
+    border-radius: 3px;
+    margin-bottom: 3px;
+}
+.create-event{
+    float: right;
+}
+.event-instance{
+    text-align: center;
+}
+
+.homeEvent {
+    list-style: none;
+    border: 3px solid #023246; 
+    background-color: rgba(28, 118, 143, 0.4); 
+    margin: 15px; 
+    border-radius: 10px; 
+    text-align: center; 
+    padding: 10px;
+}
+
+.create-event-btn{
+    background-color: #023246;
+    margin-left: 15px;
+}
+
+input, select, textarea{
+    color: white;
+}

@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+
+    <%- include('../helper/header'); -%>
+    <%- include('../helper/topnavbar'); -%>
+
+
+    <div id="friends_list_vue" class="events-container">
+        <h3 style="text-align: center; ">Requests</h3>
+        <div class="row row-cols-3">
+            <div v-for="event of requests" class="event-instance">
+                <div class="homeEvent">
+                    <form action="/events/modify" method="POST">
+                        <input type="hidden" name="eventId" v-model="event.id"></input>
+                        <input type="hidden" name="startDay" v-model="event.startTimeFrame.day"></input>
+                        <input type="hidden" name="startMonth" v-model="event.startTimeFrame.month"></input>
+                        <input type="hidden" name="startYear" v-model="event.startTimeFrame.year"></input>
+                        <input type="hidden" name="startHour" v-model="event.startTimeFrame.hour"></input>
+                        <input type="hidden" name="startMinutes" v-model="event.startTimeFrame.minutes"></input>
+                        <input type="hidden" name="endDay" v-model="event.endTimeFrame.day"></input>
+                        <input type="hidden" name="endMonth" v-model="event.endTimeFrame.month"></input>
+                        <input type="hidden" name="endYear" v-model="event.endTimeFrame.year"></input>
+                        <input type="hidden" name="endHour" v-model="event.endTimeFrame.hour"></input>
+                        <input type="hidden" name="endMinutes" v-model="event.endTimeFrame.minutes"></input>
+                        <input type="hidden" name="description" v-model="event.description"></input>
+                        <h5>{{event.title}}</h5>
+                        <h6>{{event.description}}</h6>
+                        <div style="text-align: center;">{{event.startTimeFrame.day}}/{{event.startTimeFrame.month}} - {{event.endTimeFrame.day}}/{{event.endTimeFrame.month}}</div>
+                        <br>
+                        <button class="friend_button" type="submit" name="acceptButton">✔</button>
+                        <button class="friend_button" type="submit" name="rejectButton">✘</button>
+                    </form>
+                </div>
+            </div>
+            <br>
+        </div>
+
+        <h3 style="text-align: center; ">Events</h3>
+        <div class="row row-cols-3">
+            <div v-for="event of events" class="event-instance">
+                <div class="homeEvent">
+                    <form action="/events/event" method="POST">
+                        <input type="hidden" name="event_id" v-model="event.id"></input>
+                        <h5>{{event.title}}</h5>
+                        <h6>{{event.description}}</h6>
+                        <div style="text-align: center;">{{event.startTimeFrame.day}}/{{event.startTimeFrame.month}} - {{event.endTimeFrame.day}}/{{event.endTimeFrame.month}}</div>
+                        <br>
+                        <button type="submit" class="create-event-btn">View more</button>
+                    </form>
+                    <form action="/events/quit" method="POST">
+                        <input type="hidden" name="eventId" v-model="event.id"></input>
+                        <button class="friend_button" type="submit" name="rejectButton">✘</button>
+                    </form>
+                </div>
+            </div>
+            <br>
+        </div>
+
+        <div class="col-md-12 text-right create-event">
+            <form action="/events/add/event" method="GET">
+                <input class="create-event-btn" type="submit" value="Create Event" />
+            </form>
+        </div>
+    </div>
+
+
+    <p hidden id="events_list"><%= locals.events_list %></p> 
+    <p hidden id="requests"><%= locals.requests %></p> 
+
+    <%- include('../helper/footer'); -%>
+
+    <!-- Application Javascript -->
+    <link href="/static/style/events.css" rel="stylesheet">
+
+</html>

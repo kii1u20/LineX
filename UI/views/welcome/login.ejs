@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+    
+    <%- include('../helper/header'); -%>
+
+    <form action='/login' method='POST'>
+        <div class="container-login">
+            <h1 class="titleLineX">LineX</h1>
+
+            <label class="input_label" for="email" >Email:</label>
+            <input class="input_field" type="text" name="email" value="<%= locals.email %>" placeholder="Email">
+
+            <label class="input_label" for="password">Password:</label>
+            <input class="input_field" type="password" name="password" value="<%= locals.password %>" placeholder="Password ">
+
+        <button class="action_button" type="submit">Login</button>
+    </div>
+
+    <%- include('../helper/footer'); -%>
+
+</html>

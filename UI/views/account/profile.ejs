@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+
+    <%- include('../helper/header'); -%>
+    <%- include('../helper/topnavbar'); -%>
+
+    <div id="friends_list_vue">
+      <%- include('../helper/friends'); -%>
+    </div>
+
+    <div class="right-container">
+      <div class="child">
+        <center>
+          <h3><%= locals.email %></h3>
+          <a class="nav_top_bar_a" href="/account/change/password"> Change Password </a>
+          
+          <div class="d-flex justify-content-center align-items-center">
+            <form action="/account/add/friend" method="POST">
+                <div id="add_friend">
+                    <label for="friend_email" class="form-label">Add Friend</label>
+                    <input v-model="email_field" name="friend_email" class="form-control"
+                        placeholder="Friend's Email">
+                    <button style="margin:0px" class="create-event-btn w-100" type="submit">Add Friend</button>
+                </div>
+            </form>
+        </div>
+
+        </center>
+      </div>
+    </div> 
+
+    <%- include('../helper/footer'); -%>
+    
+</html>

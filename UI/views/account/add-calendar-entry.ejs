@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+
+    <%- include('../helper/header'); -%>
+    <%- include('../helper/topnavbar'); -%>
+
+    <form action="/account/calendar/add/entry" method="POST"> 
+        <div class="container-create-event" id="add_calendar_entry">
+            <h3 style="text-align: center;">Create Personal Event</h3>
+            <div>
+                <p>Description:</p>
+                <input name="description" class="form-control" placeholder="Enter event description" value="<%= locals.description %>">
+            </div>
+            <div>
+                <p>Start Time:</p>
+                <input name="start_date" type="datetime-local" v-model="start_date" value="<%= locals.start_date %>">
+            </div>
+            <div>
+                <p>End Time:</p>
+                <input name="end_date" type="datetime-local" v-model="end_date" value="<%= locals.end_date %>">
+            </div>
+            <button type="submit" class="action_button w-100">Save event</button>
+        </div>
+    </form>
+
+    <%- include('../helper/footer'); -%>
+
+    <!-- Application Javascript -->
+    <script src="/static/add-calendar-entry.js"></script>
+</html>

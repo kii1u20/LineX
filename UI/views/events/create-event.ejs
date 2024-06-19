@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+
+    <%- include('../helper/header'); -%>
+    <%- include('../helper/topnavbar'); -%>
+
+    <!-- This can be edited -->
+    <div class="d-flex justify-content-center">
+        <form action="/events/add/event" method="post" class="container-create-event">
+            <div id="create-event">
+                <h3 style="text-align: center;">Create Event</h3>
+                <div class="row">
+                    <div class="col">
+                        <div>
+                            <p>Name of event:</p>
+                            <input name="event_name" class="form-control" placeholder="Event name"
+                                value="<%= locals.event_name %>">
+                        </div>
+                        <div>
+                            <p>Description:</p>
+                            <input name="description" class="form-control" placeholder="Enter event description"
+                                value="<%= locals.description %>">
+                        </div>
+                        <div class="row">
+                                <div>
+                                    <p>Start Timeframe:</p>
+                                    <input name="start_date" type="datetime-local">
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div>
+                                    <p>End Timeframe:</p>
+                                    <input name="end_date" type="datetime-local">
+                                </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col">
+                        <div>
+                            <p>Friends to invite:</p>
+                            <ul>
+                                <li v-for="(friend, index) in friends" :key="friend.friend">
+                                    <input type="checkbox" name="friend" :value="friend.friend"
+                                        v-model="selected[index]">
+                                    {{ friend.friend }}
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="action_button w-100" @click="">Save event</button>
+        </form>
+    </div>
+    <!-- Until here  -->
+
+    <p id="friends_list" hidden><%= locals.friends_list %></p> 
+
+    <%- include('../helper/footer'); -%>
+    <!-- Application Javascript -->
+    <script src="/static/create-event.js"></script>
+</html>

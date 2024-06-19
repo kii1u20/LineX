@@ -1,0 +1,41 @@
+<div class="left-container">
+    <center>
+        <h3><%= locals.username %></h3>
+    </center>
+
+    <h3 class="friend_h">Friends</h3> 
+    <div class="friendslist" v-for="friend of friends">
+        <div class="friend_div" v-if="friend.status == 'friend'"> 
+            <form action="/account/remove/friend" method="POST">
+                <input class="friend_input" name="friend" v-model="friend.friend" readonly></input>
+                <button class="friend_button" type="submit">✘</button>
+            </form>
+        </div>
+    </div>
+
+    <h3 class="friend_h">Requests</h3>
+    <div class="friendslist" v-for="friend of friends">
+        <div class="friend_div" v-if="friend.status == 'request'"> 
+            <form action="/account/accept/friend" method="POST">
+                <input class="friend_input" name="friend" v-model="friend.friend" readonly></input>
+                <button class="friend_button" type="submit">✔</button>
+            </form>
+            <form action="/account/reject/friend" method="POST">
+                <input class="friend_input" name="friend" v-model="friend.friend" hidden></input>
+                <button class="friend_button" type="submit">✘</button>
+            </form>
+        </div>
+    </div>
+
+    <h3 class="friend_h">Pendings</h3> 
+    <div class="friendslist" v-for="friend of friends">
+        <div class="friend_div" v-if="friend.status == 'pending'"> 
+            <form action="/account/remove/friend" method="POST">
+                <input class="friend_input" name="friend" v-model="friend.friend" readonly></input>
+                <button class="friend_button" type="submit">✘</button>
+            </form>
+        </div>
+    </div>
+
+    <p id="friends_list" hidden><%= locals.friends_list %></p>
+</div>
